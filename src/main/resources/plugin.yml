@@ -6,3 +6,12 @@ prefix: DamageItemRandomizer
 load: STARTUP
 authors: [ GelbEinhalb ]
 website: https://gelbeinhalb.com/projects/minecraft-damage-item-randomizer-plugin
+
+commands:
+  randomizer:
+    description: Randomizes the damage of the item in the main hand
+    usage: /randomizer <start/restart/stop>
+
+worlds:
+  world:
+    generator: DamageItemRandomizer
