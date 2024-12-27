@@ -50,8 +50,12 @@ public class WitherBar {
     }
 
     public void stop() {
-        bossBar.removeAll();
-        timerTask.cancel();
+        if (bossBar != null) {
+            bossBar.removeAll();
+        }
+        if (timerTask != null) {
+            timerTask.cancel();
+        }
     }
 
 }
