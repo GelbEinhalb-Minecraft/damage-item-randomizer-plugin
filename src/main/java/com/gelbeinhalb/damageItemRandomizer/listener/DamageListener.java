@@ -15,8 +15,11 @@ public class DamageListener implements Listener {
         if (event.getEntityType() != EntityType.PLAYER) {
             return;
         }
-        int itemCount = (int) (event.getDamage() / 2);
         Player player = (Player) event.getEntity();
+        if (!player.getLocation().getWorld().getName().equals("void_world")) {
+            return;
+        }
+        int itemCount = (int) (event.getDamage() / 2);
         for (int i = 0; i < itemCount; i++) {
             ItemStack randomItem = new RandomItem().get();
             if (player.getInventory().firstEmpty() != -1) {
