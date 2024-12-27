@@ -7,6 +7,7 @@ import org.bukkit.World;
 import org.bukkit.WorldCreator;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 
 import java.io.File;
 
@@ -63,5 +64,14 @@ public class VoidWorld {
                 player.teleport(Bukkit.getWorld("void_world").getSpawnLocation());
             }
         }
+    }
+
+    public void resetPlayer(Player player){
+        // Reset player inventory, xp, health, food, etc.
+        Inventory inventory = player.getInventory();
+        inventory.clear();
+        player.setHealth(20);
+        player.setFoodLevel(20);
+        player.setExp(0);
     }
 }

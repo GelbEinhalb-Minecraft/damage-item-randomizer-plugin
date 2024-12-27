@@ -34,6 +34,9 @@ public class CommandRandomizer implements CommandExecutor, TabCompleter {
             voidworld.moveVoidToSpawn();
             voidworld.create();
             voidworld.moveSpawnToVoid();
+            for (Player player : Bukkit.getOnlinePlayers()) {
+                voidworld.resetPlayer(player);
+            }
             witherbar.run(Bukkit.getWorld("void_world"));
         }
 
