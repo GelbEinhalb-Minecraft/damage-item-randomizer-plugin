@@ -11,8 +11,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class WitherBar {
 
-    public BossBar bossBar;
-    private BukkitRunnable timerTask;
+    public static BossBar bossBar;
+    public static BukkitRunnable timerTask;
 
     public void run(World world) {
         bossBar = Bukkit.createBossBar("Wither spawning in 1 hour", BarColor.RED, BarStyle.SOLID);
@@ -23,7 +23,7 @@ public class WitherBar {
         }
 
         timerTask = new BukkitRunnable() {
-            int timeLeft = 60; // 1 hour in seconds
+            int timeLeft = 3600;
 
             @Override
             public void run() {
@@ -50,11 +50,11 @@ public class WitherBar {
     }
 
     public void stop() {
-        if (bossBar != null) {
-            bossBar.removeAll();
-        }
         if (timerTask != null) {
             timerTask.cancel();
+        }
+        if (bossBar != null) {
+            bossBar.removeAll();
         }
     }
 
