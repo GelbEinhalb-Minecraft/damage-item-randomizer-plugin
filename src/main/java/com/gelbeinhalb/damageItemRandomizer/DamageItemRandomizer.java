@@ -1,12 +1,14 @@
 package com.gelbeinhalb.damageItemRandomizer;
 
+import com.gelbeinhalb.damageItemRandomizer.listener.DamageListener;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class DamageItemRandomizer extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        Bukkit.getPluginManager().registerEvents(new DamageListener(), this);
 
     }
 
