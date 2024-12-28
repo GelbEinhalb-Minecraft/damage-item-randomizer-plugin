@@ -35,15 +35,10 @@ public class DamageListener implements Listener {
     }
 
     private static int getItemCount(EntityDamageEvent event) {
-        int itemCount = (int) (event.getDamage() / 2);
-        if (event.getCause() == EntityDamageEvent.DamageCause.ENTITY_ATTACK) {
-            Entity damager = ((EntityDamageByEntityEvent) event).getDamager();
-            if (damager instanceof Player attacker) {
-                if (attacker.getInventory().getItemInMainHand().getType() == Material.AIR && attacker.getInventory().getItemInOffHand().getType() == Material.AIR) {
-                    itemCount = 1;
-                }
-            }
+        if (event.getDamage() == 1) {
+            return 1;
         }
+        int itemCount = (int) (event.getDamage() / 2);
         return itemCount;
     }
 
